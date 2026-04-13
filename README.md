@@ -1,16 +1,49 @@
-# React + Vite
+# 🌪️ NexusCore: Disaster + Smart Response Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NexusCore is a real-time, highly interactive frontend web application designed to evaluate live environmental risks and instantly synthesize tactical, actionable advice using lightning-fast AI inference.
 
-Currently, two official plugins are available:
+This project was built from scratch leveraging pure **Vanilla CSS** to construct a highly responsive, premium glassmorphic UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Out-of-the-Box Features
 
-## React Compiler
+- **🧠 Groq AI Integration:** Feeds live meteorological data to Groq's high-performance LLM to instantly generate tactical survival analyses.
+- **🛡️ Adaptive Threat Level UI:** The CSS physically alters based on the LLM's returned Risk Level. If Groq declares a Critical (Level 4) state, the dashboard pulses with red warning alerts.
+- **🌍 Interactive Radar Maps:** Powered by `react-leaflet` and CartoDB styles. Features dynamic hazard radii overlays when active regional flood warnings are detected.
+- **🛰️ Auto-Geolocation & Global Target Search:** Connect to browser location services for an instant local sweep, or use the built-in Geocoding search to target any city globally.
+- **🔊 EMER-COMMS (Emergency Audio Broadcast):** Employs the Web Speech API to synthetically read the AI's tactical analysis out loud.
+- **📡 Live HQ Transmission Ticker:** A persistent, scrolling advice marquee using the public AdviceSlip API.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technology Stack
 
-## Expanding the ESLint configuration
+- **Core:** React.js + Vite
+- **Styling:** Vanilla CSS (Glassmorphism, custom CSS Variables, Flexbox/Grid CSS)
+- **Data APIs:**
+  - [Open-Meteo API](https://open-meteo.com/) (Live Weather & Forecasts)
+  - [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api) (Location Search)
+  - [UK Environment Agency Flood API](https://environment.data.gov.uk/flood-monitoring/doc/reference) (Hazard Assessment)
+  - [AdviceSlip API](https://api.adviceslip.com/) (Wisdom Ticker)
+- **AI Inference Engine:** Groq API (Configured via `openai` SDK)
+- **Mapping:** Leaflet & `react-leaflet`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Setup & Installation
+
+### 1. Clone & Install
+Ensure you have Node.js installed, then navigate to this directory and install dependencies:
+```bash
+npm install
+```
+
+### 2. Configure Environment Variables
+You will need a valid **Groq API Key** to run the LLM inference engine. 
+1. Open the root folder.
+2. Locate the `.env.example` file and rename it to `.env` (or create a new `.env` file).
+3. Paste your Groq API key:
+```env
+VITE_GROQ_API_KEY=your_actual_api_key_here
+```
+
+### 3. Launch Development Server
+```bash
+npm run dev
+```
+Open the `localhost` URL provided in your terminal to engage the dashboard. Click **"Execute Sweep"** to run your first tactical analysis!
